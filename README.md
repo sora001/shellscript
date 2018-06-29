@@ -1,0 +1,2 @@
+# shellscript
+自分用に作ったshellscriptをおいておくリポジトリ
