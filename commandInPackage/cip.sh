@@ -10,8 +10,14 @@
 
 cmd=$(which $1)
 if [[ -z ${cmd} ]]; then
-  echo "command not found"
-  exit 1
+  # シェル組み込み関数か判断する
+  type $1 > /dev/null 2>&1
+  if [[ $? -ne 0 ]]; then
+    echo "command not found"
+    exit 1
+  fi
+  type $1
+  exit 0
 fi
 
 # Debian系とRedHat系で確認するコマンドが異なるので確認する
